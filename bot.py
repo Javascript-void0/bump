@@ -4,7 +4,7 @@ import asyncio
 from discord.ext import commands
 from discord.utils import get
 
-client = commands.Bot(command_prefix='.')
+client = commands.Bot(command_prefix='??')
 TOKEN = os.getenv("DIS_TOKEN")
 cd = 0
 
