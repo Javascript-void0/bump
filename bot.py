@@ -6,10 +6,6 @@ from discord.utils import get
 
 client = commands.Bot(command_prefix='??')
 TOKEN = os.getenv("DIS_TOKEN")
-cd = 0
-
-embed = discord.Embed(title = "Disboard is off cooldown!", description  = "Time to bump! 🍌", color = discord.Color.dark_blue())
-embed.set_thumbnail(url="https://i.pinimg.com/originals/ee/b0/e6/eeb0e632af64b76830c5777e07770202.png")
 
 @client.event
 async def on_ready():
@@ -18,7 +14,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global cd, embed
+    embed = discord.Embed(title = "Disboard is off cooldown!", description  = "Time to bump! 🍌", color = discord.Color.dark_blue())
+    embed.set_thumbnail(url="https://i.pinimg.com/originals/ee/b0/e6/eeb0e632af64b76830c5777e07770202.png")
     guild = client.get_guild(802565984602423367)
     channel = guild.get_channel(802577298267963412)
     if message.author.id == 302050872383242240 and 'done' in message.embeds[0].description:
@@ -31,23 +28,5 @@ async def on_message(message):
             print(cd)
         await channel.send(embed=embed)
         print('Reminder Sent')
-
-@client.command
-@commands.has_permissions(administrator=True)
-async def start(ctx):
-    global cd, embed
-    guild = client.get_guild(802565984602423367)
-    channel = guild.get_channel(802577298267963412)
-    if cd == 0:
-        cd = 7201
-        await ctx.send('`[+] Countdown Started`')
-        while cd >= 0:
-            cd -= 1
-            await asyncio.sleep(1)
-            print(cd)
-        await channel.send(embed=embed)
-        print('[+] Reminder Sent')
-    else:
-        ctx.send('`[x] Timer already running`')
 
 client.run(TOKEN)
