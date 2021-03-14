@@ -18,7 +18,7 @@ async def on_message(message):
     embed.set_thumbnail(url="https://i.pinimg.com/originals/ee/b0/e6/eeb0e632af64b76830c5777e07770202.png")
     guild = client.get_guild(802565984602423367)
     channel = guild.get_channel(802577298267963412)
-    if message.author.id == 302050872383242240 and 'done' in message.embeds[0].description:
+    if message.author.id == 302050872383242240 and '👍' in message.embeds[0].description:
         print('Bump Detected :D')
         cd = 7201
         print('Countdown Started')
