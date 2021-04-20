@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord.utils import get
 
 client = commands.Bot(command_prefix='??')
-TOKEN = os.getenv("DIS_TOKEN")
+TOKEN = os.getenv("TOKEN")
 
 @client.event
 async def on_ready():
