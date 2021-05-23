@@ -65,17 +65,8 @@ async def time_check():
                 print('Need to bump')
                 embed = discord.Embed(title = "Disboard is off cooldown!", description  = "Time to bump! 🍌", color = discord.Color.dark_blue())
                 embed.set_thumbnail(url="https://i.pinimg.com/originals/ee/b0/e6/eeb0e632af64b76830c5777e07770202.png")
-                print('Bump Detected :D')
-                cd = 7201
-                print('Countdown Started')
-                timer = True
-                while cd > 0:
-                    cd -= 1
-                    await asyncio.sleep(1)
-                    print(cd)
                 await channel.send(embed=embed)
                 print('Reminder Sent')
-                timer = False
 
 @time_check.before_loop
 async def before_time_check():
